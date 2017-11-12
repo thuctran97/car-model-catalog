@@ -93,14 +93,15 @@ body {
 				<!--                 Search -->
 				<%-- 				<jsp:include page="user/layout/search.jsp"/> --%>
 				<!--                 /Search -->
-
+				
+				<!--                 Brand -->
+				<jsp:include page="user/layout/brand.jsp" />
+				
 				<!-- 		                Category -->
 				<jsp:include page="user/layout/category.jsp" />
 				<!-- 		                /Category -->
 
-				<!--                 Supplier -->
-				<jsp:include page="user/layout/brand.jsp" />
-				<!--                 /Supplier -->
+				
 
 				<!--                 Special -->
 				<%-- 				<jsp:include page="user/layout/special.jsp"/> --%>

@@ -14,11 +14,4 @@
 	.nn-box .panel-footer .row{
 		padding: 0 5px;
 	}
-	.nn-box>.panel{
-		position: relative;
-	}
-	.nn-box>.panel>img{
-		position: absolute;
-		top:0px;
-		right:0px;
-	}
+	
