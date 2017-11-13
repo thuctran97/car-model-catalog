@@ -57,18 +57,17 @@
 }
 
 body {
-	background-image: url("images/b7974d1d8e3883bcc6f19d7b2915f50c--nissan-gtr-nismo-nissan-gtr-skyline.jpg");
+	background-image: url("images/moon_and_mountains_background_vertical_fgm_by_fairiegoodmother-d96if6m.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
-	background-size: 1250px;
+	background-size: cover;
 	
 }
 </style>
 
 </head>
 <body>
-	<!-- background="./images/download.jpg" width="100%" height=500 -->
 	<div class="container">
 		<header class="nn-header row">
 			<div class="nn-company">

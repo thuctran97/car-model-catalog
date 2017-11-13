@@ -43,9 +43,9 @@
 						<li><a href="account/logoff.php">Đăng xuất</a></li>
 						<li><a href="account/change.php">Đổi mật khẩu</a></li>
 						<li><a href="account/edit.php">Cập nhật hồ sơ</a></li>
-						<li class="divider"></li>
-						<li><a href="order/list.php">Đơn hàng</a></li>
-						<li><a href="order/items.php">Hàng đã mua</a></li>
+<!-- 						<li class="divider"></li> -->
+<!-- 						<li><a href="order/list.php">Đơn hàng</a></li> -->
+<!-- 						<li><a href="order/items.php">Hàng đã mua</a></li> -->
 					</c:otherwise>
 				</c:choose>
 				</ul>

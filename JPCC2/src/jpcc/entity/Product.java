@@ -43,9 +43,6 @@ public class Product {
 	@JoinColumn(name="BrandId")
 	Brand brand;
 		
-	@OneToMany(mappedBy="product")
-	Collection<OrderDetail> orderDetails;
-
 	public Integer getId() {
 		return id;
 	}
@@ -134,12 +131,6 @@ public class Product {
 		this.brand = brand;
 	}
 
-	public Collection<OrderDetail> getOrderDetails() {
-		return orderDetails;
-	}
-
-	public void setOrderDetails(Collection<OrderDetail> orderDetails) {
-		this.orderDetails = orderDetails;
-	}
+	
 	
 }

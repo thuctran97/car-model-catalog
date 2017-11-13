@@ -25,8 +25,6 @@ public class Customer {
 		this.activated = activated;
 	}
 
-	@OneToMany(mappedBy="customer")
-	Collection<Order> orders;
 
 	public String getId() {
 		return id;
@@ -66,14 +64,6 @@ public class Customer {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
-	}
-
-	public Collection<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(Collection<Order> orders) {
-		this.orders = orders;
 	}
 	
 }
