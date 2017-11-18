@@ -19,7 +19,11 @@
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/bootstrap-theme.css" rel="stylesheet" />
+<link href="css/bootstrap-theme.min.css" rel="stylesheet" />
 <script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.js"></script>
 
 <!-- eShop -->
 <style type="text/css">
@@ -42,7 +46,7 @@
 
 .nn-company>h1 {
 	font-family: Impact;
-	font-size: 50px;
+	font-size: 70px;
 	color: black;
 	letter-spacing: 0.3px;
 	text-shadow: 0 0 2px black;
@@ -57,14 +61,19 @@
 }
 
 body {
-	background-image: url("images/moon_and_mountains_background_vertical_fgm_by_fairiegoodmother-d96if6m.jpg");
+	background-image: url("images/background.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
-	background-size: cover;
-	
+	background-size: 1250px;
 }
-</style>
+.brand-name {
+	font-family: cursive;
+	position: center;
+	font-size: 18px;
+}
+
+ </style> 
 
 </head>
 <body>
@@ -84,30 +93,26 @@ body {
 
 
 
-			<aside class="col-sm-3">
-				<!-- 		                CartInfo -->
-				<%-- 						<jsp:include page="user/layout/myorder-info.jsp"/> --%>
-				<!-- 		                /CartInfo -->
+			<aside class="col-sm-2">
+
 
 				<!--                 Search -->
 				<%-- 				<jsp:include page="user/layout/search.jsp"/> --%>
 				<!--                 /Search -->
-				
+
 				<!--                 Brand -->
 				<jsp:include page="user/layout/brand.jsp" />
-				
+
 				<!-- 		                Category -->
 				<jsp:include page="user/layout/category.jsp" />
 				<!-- 		                /Category -->
-
-				
 
 				<!--                 Special -->
 				<%-- 				<jsp:include page="user/layout/special.jsp"/> --%>
 				<!--                 /Special -->
 
 			</aside>
-			<article class="col-sm-9">
+			<article class="col-sm-10">
 				<div class="nn-body">
 					<jsp:include page="${param.view}" />
 				</div>

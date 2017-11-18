@@ -31,7 +31,7 @@
 	<c:forEach var="p" items="${prods}">
 		<div class="col-sm-4 nn-box">
 			<div class="panel panel-default">
-				<div class="panel-hedding">${p.name}</div>
+				<div class="panel-heading">${p.name}</div>
 				<div class="panel-body">
 					<a href="product/detail/${p.id}.php"> <img
 						src="images/products/${p.image}">
@@ -41,9 +41,6 @@
 					<div class="row">
 						<div class="pull-left">${p.unitPrice}</div>
 						<div class="pull-right">
-							<button class="btn btn-sm btn-primary">
-								<span class="glyphicon glyphicon-shopping-cart"></span>
-							</button>
 							<button class="btn btn-sm btn-danger">
 								<span class="glyphicon glyphicon-envelope"></span>
 							</button>

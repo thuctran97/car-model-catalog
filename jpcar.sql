@@ -61,15 +61,11 @@ CREATE TABLE [dbo].[Products](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [nvarchar](40) NOT NULL,
 	[Image] [nvarchar](50) NOT NULL,
-	[Available] [bit] NOT NULL,
 	[UnitPrice] [float] NOT NULL,
 	[Description] [nvarchar](2000) NULL,
 	[CategoryId] [int] NOT NULL,
 	[BrandId] [nvarchar](50) NOT NULL,
-	[Quantity] [int] NOT NULL,
-	[Discount] [float] NOT NULL,
-	[Latest] [bit] NOT NULL,
-	[Views] [int] NOT NULL,
+	[Views] [int] NOT NULL,.
  CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
