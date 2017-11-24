@@ -13,95 +13,82 @@
 	padding: 3px;
 	box-shadow: 0 0 5px blue;
 	border-radius: 5px;
-	/* 	opacity: 1; */
-	/* 	display: block; */
-	/* 	transition: .5s ease; */
-	/* 	backface-visibility: hidden; */
+	background-image: url("images/listbackground.jpg");
+	background-position: center;
 }
 
-/* .middle { */
-/* 	transition: .5s ease; */
-/* 	opacity: 0; */
-/* 	position: absolute; */
-/* 	top: 50%; */
-/* 	left: 50%; */
-/* 	transform: translate(-50%, -50%); */
-/* 	-ms-transform: translate(-50%, -50%) */
-/* } */
 .nn-detail img:hover {
 	box-shadow: 0 0 10px red;
 	opacity: 0.3;
 }
 
-/* .container:hover .middle { */
-/* 	opacity: 1; */
-/* } */
 legend {
 	font-family: cursive;
+	font-weight: bold;
+	color: white;
+	font-size: 25px;
 }
 
-/* .text { */
-/* 	background-color: #4CAF50; */
-/* 	color: white; */
-/* 	font-size: 16px; */
-/* 	padding: 16px 32px; */
-/* } */
-.inform{
-	background-color: white;
 
-}
+
 .list-detail {
 	fort-family: Gadget;
 	font-size: 10px;
 	top: 20px;
 	right: 5px;
 }
-#car-name{
-	font-family: Geneva;
+
+#car-name {
+	font-family: cursive;
 	font-weight: bold;
 	font-size: 30px;
+	color: white;
+}
+.car-detail{
+	background-color: gray;
+	color: white;
+
 }
 </style>
 </head>
 <body>
-	<div class="row inform">
-		<img class="col-sm-8" src="images/products/${prod.image}">
-		<div class="col-sm-4 list-detail">
-			<span id="car-name">
-				<span>${prod.name}</span>
-				<span><img src="images/brands/${prod.brand.logo}" style="width: 35px" height="20px"></span>
-			</span>
-			<h5>+ Unit Price: ${prod.unitPrice}</h5>
-			<h5>+ Discount: ${prod.discount}</h5>
-			<h5>+ Category: ${prod.category.name}</h5>
-			<h5>+ Brand: ${prod.brand.name}</h5>
+	
+		<span id="car-name"> <span>${prod.name}</span> <span> <img
+				src="images/brands/${prod.brand.logo}" style="width: 35px"
+				height="25px">
+		</span>
+		</span>
+	<div class="car-detail">
+		<div class="row">
+			<img class="col-sm-12" src="images/details/${prod.code}.jpg">
+		</div>
+		<div class="row list-detail">
+			<div class="col-sm-6">
+				<h5>&emsp; + Starting Price: ${prod.startingPrice}$</h5>
+				<h5>&emsp; + Mileage: ${prod.mileage} miles per gallon (combine)</h5>
+			</div>
+			<div class="col-sm-6">
+				<h5>+ Category: ${prod.category.name}</h5>
+				<h5>+ Brand: ${prod.brand.name}</h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">&emsp;  Click here to see more about this car:
+				${prod.description}</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-12">${prod.description}</div>
-	</div>
+	<hr>
 
-	
 	<div class="row nn-detail inform">
 		<fieldset class="col-sm-12">
-			<legend>SAME CATEGORY CARS</legend>
-			<c:forEach var="p" items="${sameCateItems}">
+			<legend>See more ${prod.brand.name} cars</legend>
+			<c:forEach var="p" items="${sameBranItems}">
 				<a href="product/detail/${p.id}.php"> <img
 					src="images/products/${p.image}" class="image">
 				</a>
-				<%-- 					<span>${p.name}</span> --%>
-
 			</c:forEach>
+			<hr>
 		</fieldset>
-
-		<!-- 		<fieldset class="col-sm-12"> -->
-		<!-- 			<legend>SAME BRAND CARS</legend> -->
-		<%-- 			<c:forEach var="p" items="${sameBranItems}"> --%>
-		<%-- 				<a href="product/detail/${p.id}.php"> <img --%>
-		<%-- 					src="images/products/${p.image}"> --%>
-		<!-- 				</a> -->
-		<%-- 			</c:forEach> --%>
-		<!-- 		</fieldset> -->
 	</div>
 </body>
 </html>

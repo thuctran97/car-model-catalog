@@ -51,45 +51,13 @@ public class ProductController {
 		model.addAttribute("prods", products);
 		return "user/product/list";
 	}
-	
-	@RequestMapping("list-by-special/{id}")
-	public String listBySpecial(ModelMap model,
-			@PathVariable("id") int id) {
-		List<Product> products;
-		switch (id) {
-		case 0:
-			products = productService.getBestSellers();
-			break;
-		case 1:
-			products = productService.getLatestItems();
-					break;
-		case 2:
-			products = productService.getDiscountItems();
-			break;
-		case 3:
-			products = productService.getSpecialItems();
-			break;
-		case 4:
-			products = productService.getMostViewedItems();
-			break;
-		default:
-			products = productService.list();
-			break;
-		}
-		model.addAttribute("prods", products);
-		return "user/product/list";
-	}
 
 	@RequestMapping("detail/{id}")
 	public String detail(ModelMap model,
 			@PathVariable("id") Integer id) {
 		Product product = productService.get(id);
-		product.setViews(product.getViews()+1);
 		model.addAttribute("prod", product);
-		
-		Category category = categoryService.get(product.getCategory().getId());
-		model.addAttribute("sameCateItems", category.getProducts());
-		
+	
 		Brand brand = brandService.get(product.getBrand().getId());
 		model.addAttribute("sameBranItems", brand.getProducts());
 		return "user/product/detail";

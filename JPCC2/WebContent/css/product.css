@@ -5,13 +5,18 @@
 	.nn-box .panel-body img{
 		height: 150px;
 		max-width: 97%;
+		background-image: url("images/listbackground.jpg");
 	}
 	.nn-box  .pull-left{
 		font-family: Impact;
-		font-size: 20px;
+		font-size: 50px;
 		color: darkgray;
 	}
 	.nn-box .panel-footer .row{
 		padding: 0 5px;
 	}
+.nn-box .panel-heading {
+	font-family: Impact;
+	font-size: 15px;
+}
 	

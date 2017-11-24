@@ -4,8 +4,7 @@
 <div class="panel panel-default">
 
 	<div class="panel-heading">
-		<span class="glyphicon glyphicon-list"></span> <strong>Hãng
-			xe</strong>
+		<span class="glyphicon glyphicon-list"></span> <strong>Brands</strong>
 	</div>
 
 	<div class="list-group">

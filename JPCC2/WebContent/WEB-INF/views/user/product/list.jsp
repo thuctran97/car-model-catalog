@@ -3,27 +3,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<base href="${pageContext.request.contextPath}/" />
 <meta charset="utf-8">
 <title>Japanese Cars Catalog</title>
 <style type="text/css">
 .nn-box {
 	text-align: center;
 	font-size: smaller;
+	
 }
 
 .nn-box .panel-body img {
-	height: 150px;
+	height: 145px;
 	max-width: 100%;
 }
 
-.nn-box  .pull-left {
+.nn-box .panel-heading {
 	font-family: Impact;
 	font-size: 20px;
-	color: darkgray;
 }
-
-.nn-box .panel-footer .row {
-	padding: 0 5px;
+.panel-body{
+	background-image: url("images/listbackground.jpg");
 }
 </style>
 </head>
@@ -36,19 +36,6 @@
 					<a href="product/detail/${p.id}.php"> <img
 						src="images/products/${p.image}">
 					</a>
-				</div>
-				<div class="panel-footer">
-					<div class="row">
-						<div class="pull-left">${p.unitPrice}</div>
-						<div class="pull-right">
-							<button class="btn btn-sm btn-danger">
-								<span class="glyphicon glyphicon-envelope"></span>
-							</button>
-							<button class="btn btn-sm btn-warning">
-								<span class="glyphicon glyphicon-heart"></span>
-							</button>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

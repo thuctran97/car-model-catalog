@@ -19,11 +19,9 @@
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="css/bootstrap.css" rel="stylesheet" />
-<link href="css/bootstrap-theme.css" rel="stylesheet" />
-<link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+
 <script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap.js"></script>
+
 
 <!-- eShop -->
 <style type="text/css">
@@ -47,7 +45,7 @@
 .nn-company>h1 {
 	font-family: Impact;
 	font-size: 70px;
-	color: black;
+	color: white;
 	letter-spacing: 0.3px;
 	text-shadow: 0 0 2px black;
 	padding-bottom: 0px;
@@ -58,10 +56,12 @@
 .nn-company>h5 {
 	margin-top: 5px;
 	letter-spacing: 0.5px;
+	color: white;
+	font-size: 15px;
 }
 
 body {
-	background-image: url("images/background.jpg");
+	background-image: url("images/wallpaper.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
@@ -69,8 +69,17 @@ body {
 }
 .brand-name {
 	font-family: cursive;
-	position: center;
 	font-size: 18px;
+}
+.category-name{
+	font-family: cursive;
+	font-size: 15px;
+
+}
+.text-center {
+	font-size: 27px;
+	font-family: cursive;
+	color: white;
 }
 
  </style> 
@@ -90,27 +99,9 @@ body {
 		<jsp:include page="user/layout/menu.jsp" />
 
 		<div class="nn-sheet row">
-
-
-
-			<aside class="col-sm-2">
-
-
-				<!--                 Search -->
-				<%-- 				<jsp:include page="user/layout/search.jsp"/> --%>
-				<!--                 /Search -->
-
-				<!--                 Brand -->
+		<aside class="col-sm-2">
 				<jsp:include page="user/layout/brand.jsp" />
-
-				<!-- 		                Category -->
-				<jsp:include page="user/layout/category.jsp" />
-				<!-- 		                /Category -->
-
-				<!--                 Special -->
-				<%-- 				<jsp:include page="user/layout/special.jsp"/> --%>
-				<!--                 /Special -->
-
+				<jsp:include page="user/layout/category.jsp" />				
 			</aside>
 			<article class="col-sm-10">
 				<div class="nn-body">
@@ -118,11 +109,9 @@ body {
 				</div>
 			</article>
 		</div>
-
-		<footer class="panel panel-default row">
-			<div class="panel-heading">
-				<p class="text-center">Designed by Thuc</p>
-			</div>
+		<hr>
+		<footer class="navbar navbar-inverse row">
+				<p class="text-center">Designed by Thuc. 11/2017</p>		
 		</footer>
 	</div>
 </body>

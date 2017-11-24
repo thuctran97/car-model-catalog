@@ -1,7 +1,8 @@
-﻿CREATE DATABASE JPCC2
+﻿CREATE DATABASE JPCC
 GO
-USE JPCC2
+USE JPCC
 GO
+
 
 /****** Object:  Table [dbo].[Brands]    Script Date: 07/13/2017 02:11:14 ******/
 SET ANSI_NULLS ON
@@ -61,11 +62,12 @@ CREATE TABLE [dbo].[Products](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [nvarchar](40) NOT NULL,
 	[Image] [nvarchar](50) NOT NULL,
-	[UnitPrice] [float] NOT NULL,
+	[StartingPrice] [float] NOT NULL,
+	[Mileage] [float] NOT NULL, 
 	[Description] [nvarchar](2000) NULL,
 	[CategoryId] [int] NOT NULL,
 	[BrandId] [nvarchar](50) NOT NULL,
-	[Views] [int] NOT NULL,.
+	[Code] [nvarchar] (20) NOT NULL,
  CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -73,16 +75,137 @@ CREATE TABLE [dbo].[Products](
 ) ON [PRIMARY]
 
 SET IDENTITY_INSERT [dbo].[Products] ON
-INSERT [dbo].[Products] ([Id], [Name], [Image], [Available], [UnitPrice], [Description], [CategoryId], [BrandId],[Quantity], [Discount], [Latest], [Views]) VALUES (10001, N'Toyota Yaris', N'10001.png', 1,15500, N's', 1, N'TOY',1345, 0.1, 0, 3516)
-INSERT [dbo].[Products] ([Id], [Name], [Image], [Available], [UnitPrice], [Description], [CategoryId], [BrandId],[Quantity], [Discount], [Latest], [Views]) VALUES (10002, N'Toyota Corolla', N'10002.png', 1,18500, N's', 1, N'TOY',3541, 0, 0, 8478)
-INSERT [dbo].[Products] ([Id], [Name], [Image], [Available], [UnitPrice], [Description], [CategoryId], [BrandId],[Quantity], [Discount], [Latest], [Views]) VALUES (10003, N'Toyota Camry', N'10003.png', 1,24000, N's', 1, N'TOY',5351, 0, 0, 9516)
-INSERT [dbo].[Products] ([Id], [Name], [Image], [Available], [UnitPrice], [Description], [CategoryId], [BrandId],[Quantity], [Discount], [Latest], [Views]) VALUES (10004, N'Toyota Avalon', N'10004.png', 1,32000, N's', 1, N'TOY',1743, 0, 0, 1564)
-INSERT [dbo].[Products] ([Id], [Name], [Image], [Available], [UnitPrice], [Description], [CategoryId], [BrandId],[Quantity], [Discount], [Latest], [Views]) VALUES (10005, N'Toyota 86', N'10005.png', 1,30000, N's', 2, N'TOY',6731, 0, 0, 4234)
-INSERT [dbo].[Products] ([Id], [Name], [Image], [Available], [UnitPrice], [Description], [CategoryId], [BrandId],[Quantity], [Discount], [Latest], [Views]) VALUES (10006, N'Toyota Sienna', N'10006.png', 1,40000, N's', 4, N'TOY',7821, 0, 0, 4651)
-INSERT [dbo].[Products] ([Id], [Name], [Image], [Available], [UnitPrice], [Description], [CategoryId], [BrandId],[Quantity], [Discount], [Latest], [Views]) VALUES (10007, N'Toyota Tacoma', N'10007.png', 1,35000, N's', 6, N'TOY',5131, 0, 0, 7867)
-INSERT [dbo].[Products] ([Id], [Name], [Image], [Available], [UnitPrice], [Description], [CategoryId], [BrandId],[Quantity], [Discount], [Latest], [Views]) VALUES (10008, N'Toyota Tundra', N'10008.png', 1,45000, N's', 6, N'TOY',9551, 0, 0, 7839)
-INSERT [dbo].[Products] ([Id], [Name], [Image], [Available], [UnitPrice], [Description], [CategoryId], [BrandId],[Quantity], [Discount], [Latest], [Views]) VALUES (10009, N'Toyota CH-R', N'10009.png', 1,30000, N's', 5, N'TOY',1351, 0, 0, 3456)
-INSERT [dbo].[Products] ([Id], [Name], [Image], [Available], [UnitPrice], [Description], [CategoryId], [BrandId],[Quantity], [Discount], [Latest], [Views]) VALUES (10010, N'Toyota RAV4', N'10009.png', 1,32000, N's', 5, N'TOY',9347, 0, 0, 8464)
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10001, N'Toyota Yaris', N'10001.png',15635,33, N'https://www.toyota.com/yaris/',1, N'TOY', N'yaris')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10002, N'Toyota Corolla', N'10002.png',18550,32, N'https://www.toyota.com/corolla/',1, N'TOY',N'corolla')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10003, N'Toyota Camry', N'10003.png',23498,35, N'https://www.toyota.com/camry/',1, N'TOY',N'camry')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10004, N'Toyota Avalon', N'10004.png',33500,26, N'https://www.toyota.com/avalon/',1, N'TOY',N'avalon')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10005, N'Toyota 86', N'10005.png',26255,25, N'https://www.toyota.com/86/',2, N'TOY',N'86')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10006, N'Toyota Sienna', N'10006.png',30750,23, N'https://www.toyota.com/sienna/ ',4, N'TOY',N'sienna')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10007, N'Toyota Tacoma', N'10007.png',25200,22, N'https://www.toyota.com/tacoma/',6, N'TOY',N'tacoma')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10008, N'Toyota Tundra', N'10008.png',31120,17, N'https://www.toyota.com/tundra/',6, N'TOY',N'tundra')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10009, N'Toyota CH-R', N'10009.png',22500,29, N'https://www.toyota.com/c-hr/',5, N'TOY',N'chr')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10010, N'Toyota RAV4', N'10010.png',24410,27, N'https://www.toyota.com/rav4/',5, N'TOY',N'rav4')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10011, N'Toyota Highlander', N'10011.png',31030,24, N'https://www.toyota.com/highlander/',5, N'TOY',N'highlander')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10012, N'Toyota 4Runner', N'10012.png',34410,19, N'https://www.toyota.com/4runner/',5, N'TOY',N'4runner')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10013, N'Toyota Sequoia', N'10013.png',48300,15, N'https://www.toyota.com/sequoia/',5, N'TOY',N'sequoia')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10014, N'Toyota Land Cruiser', N'10014.png',83665,16, N'https://www.toyota.com/landcruiser/',5, N'TOY',N'landcruiser')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10015, N'Toyota Camry Hybrid', N'10015.png',27800,52, N'https://www.toyota.com/camryhybrid/ ',3, N'TOY',N'camryhybrid')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10016, N'Toyota Avalon Hybrid', N'10016.png',37500,40, N'https://www.toyota.com/avalonhybrid/',3, N'TOY',N'avalonhybrid')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10017, N'Toyota RAV4 Hybrid', N'10017.png',27135,37, N'https://www.toyota.com/rav4hybrid/',3, N'TOY',N'rav4hybrid')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10018, N'Toyota Highlander Hybrid', N'10018.png',36670,29, N'https://www.toyota.com/highlanderhybrid/',3, N'TOY',N'highlanderhybrid')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10019, N'Toyota Prius Prime', N'10019.png',27100,94, N'https://www.toyota.com/priusprime/ ',3, N'TOY',N'priusprime')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10020, N'Toyota Prius', N'10020.png',23475,52, N'https://www.toyota.com/prius/',3, N'TOY',N'prius')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10021, N'Toyota Prius V', N'10021.png',20630,46, N'https://www.toyota.com/priusv/',3, N'TOY',N'priusv')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10022, N'Toyota Prius C', N'10022.png',26675,41, N'https://www.toyota.com/priusc/',3, N'TOY',N'priusc')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10023, N'Toyota Mirai (Hydrogen Fuel Cell) ', N'10023.png',57500,67, N'https://www.toyota.com/mirai/ ',3, N'TOY',N'mirai')
+
+
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10024, N'Honda Civic', N'10024.png',18840,34, N'https://automobiles.honda.com/civic-sedan',1, N'HON',N'civicsedan')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10025, N'Honda Civic Coupe', N'10025.png',19250,33, N'https://automobiles.honda.com/civic-coupe',1, N'HON',N'civic-coupe')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10026, N'Honda Civic Hatchback', N'10026.png',19900,34, N'https://automobiles.honda.com/civic-hatchback',1, N'HON',N'civichatchback')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10027, N'Honda Civic Type R', N'10027.png',34100,25, N'https://automobiles.honda.com/civic-type-r',2, N'HON',N'civictyper')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10028, N'Honda Accord', N'10028.png',23570,34, N'https://automobiles.honda.com/accord-sedan',1, N'HON',N'accordsedan')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10029, N'Honda Accord Coupe', N'10029.png',24125,28, N'https://automobiles.honda.com/accord-coupe',1, N'HON',N'accordcoupe')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10030, N'Honda Accord Hybrid', N'10030.png',29605,48, N'https://automobiles.honda.com/accord-hybrid',3, N'HON',N'accordhybrid')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10033, N'Honda Fit', N'10033.png',16190,33, N'https://automobiles.honda.com/fit',1, N'HON',N'fit')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10035, N'Honda HR-V', N'10035.png',19465,29, N'https://automobiles.honda.com/hr-v',5, N'HON',N'hrv')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10036, N'Honda CR-V', N'10036.png',24150,29, N'https://automobiles.honda.com/cr-v',5, N'HON',N'crv')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10037, N'Honda Pilot', N'10037.png',30745,23, N'https://automobiles.honda.com/pilot',5, N'HON',N'pilot')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10038, N'Honda Odyssey', N'10038.png',29990,24, N'https://automobiles.honda.com/odyssey',4, N'HON',N'odyssey')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10039, N'Honda Ridgeline', N'10039.png',29630,23, N'https://automobiles.honda.com/ridgeline',6, N'HON',N'ridgeline')
+
+
+
+
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10052, N'Nissan Armada', N'10052.png',45600,17, N'https://www.nissanusa.com/suvs/armada',5, N'NIS',N'armada')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10053, N'Nissan Frontier', N'10053.png',18990,21, N'https://www.nissanusa.com/trucks/frontier',6, N'NIS',N'frontier')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10054, N'Nissan Titan', N'10054.png',29880,18, N'https://www.nissanusa.com/trucks/titan',6, N'NIS',N'titan')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10040, N'Nissan Versa', N'10040.png',11990,35, N'https://www.nissanusa.com/cars/versa-sedan',1, N'NIS',N'versasedan')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10041, N'Nissan Sentra', N'10041.png',16990,33, N'https://www.nissanusa.com/cars/sentra',1, N'NIS',N'sentra')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10042, N'Nissan Altima', N'10042.png',23140,33, N'https://www.nissanusa.com/cars/altima',1, N'NIS',N'altima')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10043, N'Nissan Maxima', N'10043.png',33020,26, N'https://www.nissanusa.com/cars/maxima',1, N'NIS',N'maxima')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10044, N'Nissan Leaf', N'10044.png',30680,107, N'https://www.nissanusa.com/electric-cars/leaf/',3, N'NIS',N'leaf')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10045, N'Nissan 370Z Coupe', N'10045.png',29990,23, N'https://www.nissanusa.com/sportscars/z-coupe',2, N'NIS',N'zcoupe')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10046, N'Nissan 370Z Roadster', N'10046.png',41820,22, N'https://www.nissanusa.com/sportscars/z-roadster',2, N'NIS',N'zroadster')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10047, N'Nissan GT-R', N'10047.png',99990,19, N'https://www.nissanusa.com/sportscars/gt-r',2, N'NIS',N'gtr')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10048, N'Nissan Juke', N'10048.png',20250,31, N'https://www.nissanusa.com/crossovers/juke',5, N'NIS',N'juke')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10049, N'Nissan Rogue', N'10049.png',24680,30, N'https://www.nissanusa.com/crossovers/rogue',5, N'NIS',N'rogue')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10050, N'Nissan Murano', N'10050.png',29770,25, N'https://www.nissanusa.com/crossovers/murano',5, N'NIS',N'murano')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10051, N'Nissan Pathfinder', N'10051.png',30790,24, N'https://www.nissanusa.com/suvs/pathfinder',5, N'NIS',N'pathfinder')
+
+
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10058, N'Lexus GS', N'10058.png',46310,25, N'http://www.lexus.com/models/GS',1, N'LEX',N'GS')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10059, N'Lexus GS Hybrid', N'10059.png',63635,31, N'http://www.lexus.com/models/GS-hybrid',3, N'LEX',N'GShybrid')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10060, N'Lexus LS', N'10060.png',72520,19, N'http://www.lexus.com/models/LS',1, N'LEX',N'LS')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10055, N'Lexus IS', N'10055.png',38210,22, N'http://www.lexus.com/models/IS',1, N'LEX',N'IS')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10056, N'Lexus ES', N'10056.png',38900,24, N'http://www.lexus.com/models/ES',1, N'LEX',N'ES')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10057, N'Lexus ES Hybrid', N'10057.png',41820,40, N'http://www.lexus.com/models/ES-hybrid',3, N'LEX',N'EShybrid')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10061, N'Lexus NX', N'10061.png',35985,25, N'http://www.lexus.com/models/NX',5, N'LEX',N'NX')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10062, N'Lexus NX Hybrid', N'10062.png',38335,31, N'http://www.lexus.com/models/NX-hybrid',3, N'LEX',N'NXhybrid')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10063, N'Lexus RX', N'10063.png',43220,23, N'http://www.lexus.com/models/RX',5, N'LEX',N'RX')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10064, N'Lexus RX Hybrid', N'10064.png',53035,30, N'http://www.lexus.com/models/RX-hybrid',3, N'LEX',N'RXhybrid')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10065, N'Lexus GX', N'10065.png',51855,16, N'http://www.lexus.com/models/GX',5, N'LEX',N'GX')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10066, N'Lexus LX', N'10066.png',89980,15, N'http://www.lexus.com/models/LX',5, N'LEX',N'LX')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10067, N'Lexus RC', N'10067.png',40155,22, N'http://www.lexus.com/models/RC',2, N'LEX',N'RC')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10068, N'Lexus LC', N'10068.png',92000,25, N'http://www.lexus.com/models/LC',2, N'LEX',N'LC')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10069, N'Lexus LC Hybrid', N'10069.png',96510,35, N'http://www.lexus.com/models/LC-hybrid',3, N'LEX',N'LChybrid')
+
+
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10070, N'Acura ILX', N'10070.png',28100,29, N'https://www.acura.com/ilx',1, N'ACU',N'ILX')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10071, N'Acura TLX', N'10071.png',33000,25, N'https://www.acura.com/tlx',1, N'ACU',N'TLX')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10072, N'Acura RLX', N'10072.png',54900,23, N'https://www.acura.com/rlx',1, N'ACU',N'RLX')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10073, N'Acura RDX', N'10073.png',35800,23, N'https://www.acura.com/rdx',5, N'ACU',N'RDX')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10074, N'Acura MDX', N'10074.png',44200,23, N'https://www.acura.com/mdx',5, N'ACU',N'MDX')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10075, N'Acura NSX', N'10075.png',156000,27, N'https://nsx.acura.com/explore/nsx',2, N'ACU',N'NSX')
+
+
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10076, N'Infiniti Q50', N'10076.png',34200,23, N'https://www.infinitiusa.com/sedan/q50',1, N'INF',N'Q50')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10077, N'Infiniti Q70', N'10077.png',50300,19, N'https://www.infinitiusa.com/sedan/q70',1, N'INF',N'Q70')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10078, N'Infiniti Q60', N'10078.png',38980,22, N'https://www.infinitiusa.com/coupe/q60',1, N'INF',N'Q60')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10079, N'Infiniti QX30', N'10079.png',29950,27, N'https://www.infinitiusa.com/crossover/qx30',5, N'INF',N'QX30')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10080, N'Infiniti QX50', N'10080.png',34650,20, N'https://www.infinitiusa.com/crossover/qx50',5, N'INF',N'QX50')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10081, N'Infiniti QX60', N'10081.png',43300,22, N'https://www.infinitiusa.com/crossover/qx60',5, N'INF',N'QX60')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10082, N'Infiniti QX70', N'10082.png',45850,19, N'https://www.infinitiusa.com/crossover/qx70',5, N'INF',N'QX70')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10083, N'Infiniti QX80', N'10083.png',63850,16, N'https://www.infinitiusa.com/suv/qx80',5, N'INF',N'QX80')
+
+
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10088, N'Subaru Outback', N'10088.png',25898,29, N'https://www.subaru.com/vehicles/outback/index.html',5, N'SUB',N'outback')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10089, N'Subaru BRZ', N'10089.png',25498,29, N'https://www.subaru.com/vehicles/brz/index.html',2, N'SUB',N'BRZ')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10090, N'Subaru WRX', N'10090.png',26998,24, N'https://www.subaru.com/vehicles/wrx/index.html',2, N'SUB',N'WRX')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10084, N'Subaru Impreza', N'10084.png',18495,33, N'https://www.subaru.com/vehicles/impreza/index.html',1, N'SUB',N'impreza')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10085, N'Subaru Legacy', N'10085.png',22195,30, N'https://www.subaru.com/vehicles/legacy/index.html',1, N'SUB',N'legacy')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10086, N'Subaru Crosstrek', N'10086.png',22795,29, N'https://www.subaru.com/vehicles/crosstrek/index.html',5, N'SUB',N'crosstrek')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10087, N'Subaru Forester', N'10087.png',21795,30, N'https://www.subaru.com/vehicles/forester/index.html',5, N'SUB',N'forester')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10095, N'Mazda CX-5', N'10095.png',24045,27, N'https://www.mazdausa.com/vehicles/cx-5',5, N'MAZ',N'CX5')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10096, N'Mazda CX-9', N'10096.png',32130,24, N'https://www.mazdausa.com/vehicles/cx-9',5, N'MAZ',N'CX9')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10097, N'Mazda MX5 Miata', N'10097.png',24915,29, N'https://www.mazdausa.com/vehicles/mx-5-miata',2, N'MAZ',N'MX5Miata')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10091, N'Mazda 3', N'10091.png',18095,32, N'https://www.mazdausa.com/vehicles/mazda3',1, N'MAZ',N'mazda3')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10092, N'Mazda 3 Hatchback', N'10092.png',19345,31, N'https://www.mazdausa.com/vehicles/mazda3-hatchback',1, N'MAZ',N'mazda3hatchback')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10093, N'Mazda 6', N'10093.png',21945,29, N'https://www.mazdausa.com/vehicles/mazda6',1, N'MAZ',N'mazda6')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10094, N'Mazda CX-3', N'10094.png',20110,30, N'https://www.mazdausa.com/vehicles/cx-3',5, N'MAZ',N'cx3')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10098, N'Mitsubishi Outlander', N'10098.png',23795,27, N'https://www.mitsubishicars.com/outlander/2018#vehicle-hero-area',5, N'MIT',N'outlander')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10099, N'Mitsubishi Outlander Sport', N'10099.png',20295,25, N'https://www.mitsubishicars.com/outlander-sport/2018#vehicle-hero-area',5, N'MIT',N'outlandersport')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10100, N'Mitsubishi Mirage', N'10100.png',13395,39, N'https://www.mitsubishicars.com/mirage/2018#vehicle-hero-area',1, N'MIT',N'mirage')
+
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10101, N'Mitsubishi Lancer', N'10101.png',17795,28, N'https://www.mitsubishicars.com/lancer/2017',2, N'MIT',N'Lancer')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10102, N'Mitsubishi Lancer Evolution', N'10102.png',34495,25, N'https://www.mitsubishicars.com/lancer-evolution/2015',2, N'MIT',N'lancerevolution')
+INSERT [dbo].[Products] ([Id], [Name], [Image], [StartingPrice],[Mileage], [Description], [CategoryId], [BrandId], [Code]) VALUES (10103, N'Mitsubishi Mirage G4', N'10103.png',14395,37, N'https://www.mitsubishicars.com/mirage-g4/2018#vehicle-hero-area',1, N'MIT',N'mirageg4')
 
 SET IDENTITY_INSERT [dbo].[Products] OFF
 
@@ -197,99 +320,6 @@ INSERT [dbo].[Customers] ([Id], [Password], [Fullname], [Email], [Photo], [Activ
 INSERT [dbo].[Customers] ([Id], [Password], [Fullname], [Email], [Photo], [Activated]) VALUES (N'WILMK', N'iloveyou', N'Matti Karttunen', N'thucctin@gmail.com', N'User.jpg', 1)
 INSERT [dbo].[Customers] ([Id], [Password], [Fullname], [Email], [Photo], [Activated]) VALUES (N'WOLZA', N'iloveyou', N'Zbyszek Piestrzeniewicz', N'thucctin@gmail.com', N'User.jpg', 1)
 
-
-/****** Object:  Table [dbo].[OrderDetails]   
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[OrderDetails](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[OrderId] [int] NOT NULL,
-	[ProductId] [int] NOT NULL,
-	[UnitPrice] [float] NOT NULL,
-	[Quantity] [int] NOT NULL,
-	[Discount] [float] NOT NULL,
- CONSTRAINT [PK_OrderDetails] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-SET IDENTITY_INSERT [dbo].[OrderDetails] ON
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100001, 10001, 10001, 24000, 1, 0)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100002, 10001, 10004, 30000, 1, 0.2)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100003, 10002, 10002, 20000, 1, 0.1)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100004, 10003, 10007, 30000, 1, 0)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100005, 10004, 10009, 26000, 1, 0.2)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100006, 10004, 10003, 25000, 1, 0.03)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100007, 10005, 10002, 21000, 1, 0)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100008, 10006, 10003, 17000, 1, 0)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100009, 10007, 10006, 29000, 1, 0.1)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100010, 10008, 10008, 32000, 1, 0.12)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100011, 10008, 10005, 50000, 1, 0.05)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100012, 10009, 10002, 51000, 1, 0.1)
-INSERT [dbo].[OrderDetails] ([Id], [OrderId], [ProductId], [UnitPrice], [Quantity], [Discount]) VALUES (100013, 10010, 10003, 40000, 1, 0.04)
-SET IDENTITY_INSERT [dbo].[OrderDetails] OFF
-
-/****** Object:  Table [dbo].[Orders]  ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Orders](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[CustomerId] [nvarchar](20) NOT NULL,
-	[OrderDate] [datetime] NOT NULL,
-	[RequireDate] [datetime] NOT NULL,
-	[Receiver] [nvarchar](50) NOT NULL,
-	[Address] [nvarchar](60) NOT NULL,
-	[Amount] [float] NOT NULL,
- CONSTRAINT [PK_Orders] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-SET IDENTITY_INSERT [dbo].[Orders] ON
-INSERT [dbo].[Orders] ([Id], [CustomerId], [OrderDate], [RequireDate], [Receiver], [Address], [Amount]) VALUES (10001, N'VINET', CAST(0x000089B000000000 AS DateTime), CAST(0x000089CC00000000 AS DateTime), N'Roger Federer', N'59 rue de Abbaye',2)
-INSERT [dbo].[Orders] ([Id], [CustomerId], [OrderDate], [RequireDate], [Receiver], [Address], [Amount]) VALUES (10002, N'TOMSP', CAST(0x000089B100000000 AS DateTime), CAST(0x000089DB00000000 AS DateTime), N'Andy Murray', N'Luisenstr. 48',1)
-INSERT [dbo].[Orders] ([Id], [CustomerId], [OrderDate], [RequireDate], [Receiver], [Address], [Amount]) VALUES (10003, N'HANAR', CAST(0x000089B400000000 AS DateTime), CAST(0x000089D000000000 AS DateTime), N'Roger Federer', N'Rua do Paço, 67',1)
-INSERT [dbo].[Orders] ([Id], [CustomerId], [OrderDate], [RequireDate], [Receiver], [Address], [Amount]) VALUES (10004, N'VICTE', CAST(0x000089B400000000 AS DateTime), CAST(0x000089D000000000 AS DateTime), N'Rafael Nadal', N'2, rue du Commerce',2)
-INSERT [dbo].[Orders] ([Id], [CustomerId], [OrderDate], [RequireDate], [Receiver], [Address], [Amount]) VALUES (10005, N'SUPRD', CAST(0x000089B500000000 AS DateTime), CAST(0x000089D100000000 AS DateTime), N'Roger Federer', N'Boulevard Tirou, 255',1)
-INSERT [dbo].[Orders] ([Id], [CustomerId], [OrderDate], [RequireDate], [Receiver], [Address], [Amount]) VALUES (10006, N'HANAR', CAST(0x000089B600000000 AS DateTime), CAST(0x000089C400000000 AS DateTime), N'Andy Murray', N'Rua do Paço, 67',1)
-INSERT [dbo].[Orders] ([Id], [CustomerId], [OrderDate], [RequireDate], [Receiver], [Address], [Amount]) VALUES (10007, N'CHOPS', CAST(0x000089B700000000 AS DateTime), CAST(0x000089D300000000 AS DateTime), N'Roger Federer', N'Hauptstr. 31',1)
-INSERT [dbo].[Orders] ([Id], [CustomerId], [OrderDate], [RequireDate], [Receiver], [Address], [Amount]) VALUES (10008, N'RICSU', CAST(0x000089B800000000 AS DateTime), CAST(0x000089D400000000 AS DateTime), N'Andy Murray', N'Starenweg 5',2)
-INSERT [dbo].[Orders] ([Id], [CustomerId], [OrderDate], [RequireDate], [Receiver], [Address], [Amount]) VALUES (10009, N'WELLI', CAST(0x000089BB00000000 AS DateTime), CAST(0x000089D700000000 AS DateTime), N'Roger Federer', N'Rua do Mercado, 12',1)
-INSERT [dbo].[Orders] ([Id], [CustomerId], [OrderDate], [RequireDate], [Receiver], [Address], [Amount]) VALUES (10010, N'ERNSH', CAST(0x000089BD00000000 AS DateTime), CAST(0x000089D900000000 AS DateTime), N'Roger Federer', N'Kirchgasse 6',1)
-
-SET IDENTITY_INSERT [dbo].[Orders] OFF
-
-/****** Object:  ForeignKey [FK_OrderDetails_Orders]    Script Date: 07/13/2017 02:11:14 ******/
-ALTER TABLE [dbo].[OrderDetails]  WITH CHECK ADD  CONSTRAINT [FK_OrderDetails_Orders] FOREIGN KEY([OrderId])
-REFERENCES [dbo].[Orders] ([Id])
-ON UPDATE CASCADE
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[OrderDetails] CHECK CONSTRAINT [FK_OrderDetails_Orders]
-GO
-/****** Object:  ForeignKey [FK_OrderDetails_Products]    Script Date: 07/13/2017 02:11:14 ******/
-ALTER TABLE [dbo].[OrderDetails]  WITH CHECK ADD  CONSTRAINT [FK_OrderDetails_Products] FOREIGN KEY([ProductId])
-REFERENCES [dbo].[Products] ([Id])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [dbo].[OrderDetails] CHECK CONSTRAINT [FK_OrderDetails_Products]
-GO
-/****** Object:  ForeignKey [FK_Orders_Customers]    Script Date: 07/13/2017 02:11:14 ******/
-ALTER TABLE [dbo].[Orders]  WITH CHECK ADD  CONSTRAINT [FK_Orders_Customers] FOREIGN KEY([CustomerId])
-REFERENCES [dbo].[Customers] ([Id])
-ON UPDATE CASCADE
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Orders_Customers]
-GO
-****///
 /****** Object:  ForeignKey [FK_HangHoa_Loai1]    Script Date: 07/13/2017 02:11:14 ******/
 ALTER TABLE [dbo].[Products]  WITH CHECK ADD  CONSTRAINT [FK_HangHoa_Loai1] FOREIGN KEY([CategoryId])
 REFERENCES [dbo].[Categories] ([Id])

@@ -91,17 +91,29 @@ public class BrandService {
 		return list;
 	}
 
-	public List<Brand> get5Items() {
-		String hql = "FROM Brand WHERE SIZE(products)>=4";
+	public List<Brand> get3Items() {
+		String hql = "FROM Brand WHERE SIZE(products)>=3";
 		Session session = factory.getCurrentSession();
 		Query query = session.createQuery(hql);
 		List<Brand> list = query.list();
 		Collections.shuffle(list);
-		List<Brand> sup5 = list.subList(0, 5);
-		for (Brand s: sup5) {
+		List<Brand> bra3 = list.subList(0, 3);
+		for (Brand s: bra3) {
 			Hibernate.initialize(s.getProducts());
 		}
-		return sup5;
+		return bra3;
 		
 	}
+
+	public Brand getBrand(String brand) {
+		String hql = "FROM Brand WHERE name=:brand";
+		Session session = factory.getCurrentSession();
+		Query query = session.createQuery(hql);
+		query.setParameter("brand", brand);
+		Brand x= (Brand) query.uniqueResult();
+		Hibernate.initialize(x.getProducts());
+		return x;
+	}
+
+	
 }

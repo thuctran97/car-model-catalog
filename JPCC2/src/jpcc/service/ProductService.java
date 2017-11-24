@@ -89,8 +89,7 @@ public class ProductService {
 		String hql = "FROM Product WHERE " +
 				" name LIKE :kw OR " +
 				" category.name LIKE :kw OR " +
-				" category.nameVN LIKE :kw OR " +
-				" supplier.name LIKE :kw";
+				" brand.name LIKE :kw";
 		Session session = factory.getCurrentSession();
 		Query query = session.createQuery(hql);
 		query.setParameter("kw", "%"+keywords+"%");
@@ -98,14 +97,7 @@ public class ProductService {
 		return list;
 	}
 
-	public List<Product> getMostViewedItems() {
-		String hql = "FROM Product WHERE views > 0 ORDER BY views DESC";
-		Session session = factory.getCurrentSession();
-		Query query = session.createQuery(hql);
-		query.setMaxResults(12);
-		List<Product> list = query.list();
-		return list;
-	}
+	
 
 	public List<Product> getSpecialItems() {
 		String hql = "FROM Product WHERE special=true";
@@ -115,38 +107,10 @@ public class ProductService {
 		return list;
 	}
 
-	public List<Product> getDiscountItems() {
-		String hql = "FROM Product WHERE discount > 0 ORDER BY discount DESC";
+	public List<Product> getExpensiveItems() {
+		String hql = "FROM Product WHERE startingPrice>= 50000 ORDER BY startingPrice DESC";
 		Session session = factory.getCurrentSession();
 		Query query = session.createQuery(hql);
-		query.setMaxResults(12);
-		List<Product> list = query.list();
-		return list;
-	}
-
-	public List<Product> getLatestItems() {
-		String hql = "FROM Product WHERE latest=true";
-		Session session = factory.getCurrentSession();
-		Query query = session.createQuery(hql);
-		List<Product> list = query.list();
-		return list;
-	}
-
-	public List<Product> getBestSellers() {
-		String hql = "FROM Product ORDER BY SIZE(orderDetails) DESC";
-		Session session = factory.getCurrentSession();
-		Query query = session.createQuery(hql);
-		query.setMaxResults(12);
-		List<Product> list = query.list();
-		return list;
-	}
-	public List<Product> loadpage(int pageNo, int pageSize) {
-		String hql = "FROM Product";
-		Session session = factory.getCurrentSession();
-		Query query = session.createQuery(hql);
-		query.setFirstResult(pageNo*pageSize);    
-		//dòng dữ liệu đầu =0 -> page 1: 0-> 5, page 2: 6->11,...first=0,6,...max=6
-		query.setMaxResults(pageSize);
 		List<Product> list = query.list();
 		return list;
 	}
