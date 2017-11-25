@@ -4,7 +4,7 @@ USE JPCC
 GO
 
 
-/****** Object:  Table [dbo].[Brands]    Script Date: 07/13/2017 02:11:14 ******/
+/****** Object:  Table [dbo].[Brands]    ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
