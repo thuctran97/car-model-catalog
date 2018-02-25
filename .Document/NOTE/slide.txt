@@ -1,0 +1,104 @@
+<%@page pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<style>
+			div{
+				width: 300px;
+				height: 200px;
+				border: 1px solid red;
+				border-radius: 10px;
+				position: relative;
+			}
+			img{
+				width: 100%;
+				height: 100%;
+				border-radius: 10px;
+			}
+			#prew{
+				position: absolute;
+				left: 10px;
+				top: 100px;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				outline: none;
+				border: none;
+			}
+			#next{
+				position: absolute;
+				right: 10px;
+				top: 100px;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				outline: none;
+				border: none;
+			}
+		</style>
+		<script>
+			var anh = ["1001.jpg","1002.jpg","1003.jpg","1004.jpg","1005.jpg","1006.jpg"];
+			var index = 0;
+			var i;
+			$(function(){
+				$("#next").click(function(){
+					if(index == anh.length - 1)
+					{
+						index = 0;
+						
+					}else
+					{
+						index += 1;
+					}
+					$("img").fadeOut(500,function(){
+						$("img").attr("src", "images/products/" + anh[index]);
+						$("img").fadeIn(500);
+					});
+					
+				});
+			});
+			$(function(){
+				$("#prew").click(function(){
+					if(index == 0)
+					{
+						index = anh.length - 1;
+						
+					}else
+					{
+						index -= 1;
+					}
+					$("img").fadeOut(500,function(){
+						$("img").attr("src", "images/products/" + anh[index]);
+						$("img").fadeIn(500);
+					});
+					
+				});
+				
+			});
+			$(function(){
+				$("#demo").click(function(){
+					for(i = 0; i < anh.length; i++)
+					{
+						
+					}
+					
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Slideshow</h1>
+		<div>
+			<img src="images/products/1007.jpg" alt="" />
+			<button id="prew"> << </button>
+			<button id="next"> >> </button>
+		</div>
+		<hr/>
+		
+		<button id="demo">Demo</button>
+	</body>
+</html>

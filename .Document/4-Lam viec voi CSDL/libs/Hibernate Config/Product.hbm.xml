@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+	<class name="nnghiem.entity.Product" table="Products">
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="name" type="string" column="Name" />
+		<property name="unitPrice" type="double" column="UnitPrice" />
+		<property name="productDate" type="date" column="ProductDate" />
+		<!-- property name="categoryId" type="int" column="CategoryId" /-->
+		<property name="image" type="string" column="Image" />
+		<property name="available" type="boolean" column="Available" />
+		
+		<!-- khai báo thực thể kết hợp -->
+		<many-to-one name="category" column="CategoryId" 
+			class="nnghiem.entity.Category" cascade="all" not-null="true"/>
+	</class>
+</hibernate-mapping>
